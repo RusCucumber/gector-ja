@@ -14,40 +14,42 @@
 
 # [START gae_python38_app]
 # [START gae_python3_app]
+
+import os
+
+os.environ["TF_USE_LEGACY_KERAS"] = "1"
+
 import unicodedata
 from difflib import ndiff
 
-from flask import Flask, render_template, request, jsonify
-from model import GEC
+from flask import Flask, jsonify, render_template, request
 
+from model import GEC
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
 app = Flask(__name__)
-gec = GEC(pretrained_weights_path='data/model/model_checkpoint')
+gec = GEC(pretrained_weights_path="data/model/model_checkpoint")
 
 
-@app.route('/', methods=['GET'])
+@app.route("/", methods=["GET"])
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
 
-@app.route('/correct', methods=['POST'])
+@app.route("/correct", methods=["POST"])
 def correct():
-    text = unicodedata.normalize('NFKC', request.json['text']).replace(' ', '')
+    text = unicodedata.normalize("NFKC", request.json["text"]).replace(" ", "")
     correct_text = gec.correct(text)
     diffs = list(ndiff(text, correct_text))
-    print(f'Correction: {text} -> {correct_text}')
-    return jsonify({
-        'correctedText': correct_text,
-        'diffs': diffs
-    })
+    print(f"Correction: {text} -> {correct_text}")
+    return jsonify({"correctedText": correct_text, "diffs": diffs})
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # This is used when running locally only. When deploying to Google App
     # Engine, a webserver process such as Gunicorn will serve the app. This
     # can be configured by adding an `entrypoint` to app.yaml.
-    app.run(host='127.0.0.1', port=8080, threaded=False, use_reloader=False)
+    app.run(host="127.0.0.1", port=8080, threaded=False, use_reloader=False)
 # [END gae_python3_app]
 # [END gae_python38_app]

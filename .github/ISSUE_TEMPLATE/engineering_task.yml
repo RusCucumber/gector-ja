@@ -1,0 +1,55 @@
+name: 🛠 Engineering Task
+description: Developing features, bug fixes, tests
+title: "[Dev] "
+labels: [Feature, Bug, Test]
+projects: [RusCucumber/1] 
+assignees:
+  - RusCucumber
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue clarifies an engineering task. Please fill in the details below.
+
+  - type: input
+    attributes:
+      label: Task Description
+      description: What is the goal of this engineering task?
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Branch Type
+      description: Select the type of branch to create for this task.
+      options:
+        - label: "``feat/``: New feature implementation (.py)"
+        - label: "``fix/``: Bug fix (.py)"
+        - label: "``test/``: Test addition only (.py)"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Implementation Details
+      description: Provide any specific details or requirements for this task.
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Action Steps
+      description: Please follow the steps below to complete the engineering task.
+      options:
+        - label: Create a branch named `feat/{{descriptive-name}}-{{#issue-number}}`, `fix/{{descriptive-name}}-{{#issue-number}}`, or `test/{{descriptive-name}}-{{#issue-number}}` based on the task type
+        - label: Implement the feature/bug fix/test
+        - label: Add or update tests as necessary
+        - label: Ensure all tests pass locally
+        - label: Push the branch, open a PR, and review the code changes
+        - label: (Optional) Create an issue for the next action items
+
+  - type: textarea
+    attributes:
+      label: Additional Notes
+      description: Any other information or context for this engineering task?

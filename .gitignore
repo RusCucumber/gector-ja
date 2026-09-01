@@ -1,3 +1,10 @@
 *.pyc
 data/corpora/*
 data/model/*
+
+# local settings
+.zed
+.claude
+.github/skills
+.github/copilot-instructions.md
+.omc
