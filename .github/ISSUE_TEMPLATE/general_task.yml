@@ -1,0 +1,53 @@
+name: 📝 General Task
+description: Data Manipulation, Documentation, Environment Updates
+title: "[Task] "
+labels: [Data, Documentation, Chore]
+projects: [RusCucumber/1] 
+assignees:
+  - RusCucumber
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue clarifies a general task. Please fill in the details below.
+
+  - type: input
+    attributes:
+      label: Task Description
+      description: What is the goal of this task?
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Branch Type
+      description: Select the type of branch to create for this task.
+      options:
+        - label: "``data/``: Manual data manipulation (e.g., cleaning, organization, coding etc.)"
+        - label: "``doc/``: Documentation or paper writing"
+        - label: "``chore/``: Environment setup or dependency updates"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Task Details
+      description: Provide any specific details or requirements for this task.
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Action Steps
+      description: Please follow the steps below to complete the general task.
+      options:
+        - label: Create a branch named `data/{{descriptive-name}}-{{#issue-number}}`, `doc/{{descriptive-name}}-{{#issue-number}}`, or `chore/{{descriptive-name}}-{{#issue-number}}` based on the task type
+        - label: Implement the task as described
+        - label: Push the branch, open a PR, and review the changes
+        - label: (Optional) Create an issue for the next action items
+
+  - type: textarea
+    attributes:
+      label: Additional Notes
+      description: Any other information or context for this general task?

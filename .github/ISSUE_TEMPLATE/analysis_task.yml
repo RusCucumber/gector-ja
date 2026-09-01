@@ -1,0 +1,43 @@
+name: 📊 Analysis Task
+description: Analyze data
+title: "[Analysis] "
+labels: [Analysis]
+projects: [RusCucumber/1] 
+assignees:
+  - RusCucumber
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue clarifies an analysis task. Please fill in the details below.
+
+  - type: input
+    attributes:
+      label: Objective / Hypothesis
+      description: What is the goal of this analysis?
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Data Source
+      description: What data will you use for this analysis?
+    validations:
+      required: true
+
+  - type: checkboxes # MEMO: markdown にしても良いかも
+    attributes:
+      label: Action Steps
+      description: Please follow the steps below to complete the analysis task.
+      options:
+        - label: Create a branch named `analysis/{{descriptive-name}}-{{#issue-number}}`
+        - label: Create a Python/R notebook (`notebooks/python/xxx.ipynb` or `notebooks/R/xxx.qmd`)
+        - label: Push the branch, open a PR, and review the outcome
+        - label: Summarize the results in a comment on this Issue
+        - label: (Optional) Create an issue for the next action items
+
+  - type: textarea
+    attributes:
+      label: Additional Notes
+      description: Any other information or context for this analysis task?

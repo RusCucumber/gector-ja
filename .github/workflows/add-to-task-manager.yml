@@ -1,0 +1,28 @@
+name: Add issue to task manager project
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v2
+        with:
+          project-url: https://github.com/users/RusCucumber/projects/1
+          github-token: ${{ secrets.PROJECT_CONTROL_TOKEN }}
+
+      - uses: nipe0324/update-project-v2-item-field@v2.0.2
+        with:
+          project-url: https://github.com/users/RusCucumber/projects/1
+          github-token: ${{ secrets.PROJECT_CONTROL_TOKEN }}
+          field-name: "Category"
+          field-value: "Research"
+
+      - uses: nipe0324/update-project-v2-item-field@v2.0.2
+        with:
+          project-url: https://github.com/users/RusCucumber/projects/1
+          github-token: ${{ secrets.PROJECT_CONTROL_TOKEN }}
+          field-name: "Project"
+          field-value: "NaN"
