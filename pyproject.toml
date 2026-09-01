@@ -16,3 +16,22 @@ dependencies = [
 
 [project.scripts]
 gector-ja = "gector_ja:main"
+
+[tool.ruff]
+target-version = "py39"
+line-length = 119
+exclude = ["__pycache__"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "C90"]
+ignore = ["E203"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ty.environment]
+root = ["./"]
+python-version = "3.9"
+
+[tool.ty.src]
+exclude = ["__pycache__"]
