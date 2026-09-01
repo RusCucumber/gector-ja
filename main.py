@@ -14,6 +14,10 @@
 
 # [START gae_python38_app]
 # [START gae_python3_app]
+
+import os
+os.environ['TF_USE_LEGACY_KERAS'] = '1'
+
 import unicodedata
 from difflib import ndiff
 
