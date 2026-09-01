@@ -32,7 +32,7 @@ body:
       description: Please follow the steps below to complete the analysis task.
       options:
         - label: Create a branch named `analysis/{{descriptive-name}}-{{#issue-number}}`
-        - label: Create a Python/R notebook (`notebooks/python/xxx.ipynb` or `notebooks/R/xxx.qmd`)
+        - label: Create a Python notebook (`notebooks/python/xxx.ipynb`)
         - label: Push the branch, open a PR, and review the outcome
         - label: Summarize the results in a comment on this Issue
         - label: (Optional) Create an issue for the next action items
